@@ -20,7 +20,7 @@ const gif = require("gif-search");
 
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "d5rcftvubyuhnij";
+const prefix = "2";
 /////////////////////////
 ////////////////////////
 
@@ -309,9 +309,27 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`**${song.title}**, is now playing!`);
+}
+
+
+client.on('message', message => {
+    if (message.content === 'help') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**الاوامر ...**')
+        .setDescription('**برفكس البوت (.)**')
+        .addField('new', 'لفتح تكت')
+      message.channel.send(helpEmbed);
     }
 });
 
+client.on('message', message => {
+    if (message.content === 'general_commands') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**....**')
+        .setFooter('المزيد قريبا ان شاء الله!')
+      message.channel.send(helpEmbed);
+    }
+});
 
 
 
